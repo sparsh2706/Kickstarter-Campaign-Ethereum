@@ -28,12 +28,13 @@ class CampaignIndex extends Component {
             <div>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
                 <h3>Open Campaigns</h3>
-                {this.renderCampaigns()}
                 <Button 
+                    floated='right' // the button gets floated to the right side 
                     content="Create Campaign"
                     icon="add circle"
                     primary // this means primary={true}. Just adds blue colour button
-                />
+                    />
+                {this.renderCampaigns()}
             </div>
         </Layout>
         );
@@ -41,6 +42,13 @@ class CampaignIndex extends Component {
 
 }
 export default CampaignIndex;
+
+/* Two Column Layout:
+    To send the Button to the right, we use floated. But
+    But then we had to put the renderCampaigns below the
+    Button element so that the Button element gets rendered
+    first, and then the renderCampaigns
+*/
 
 /* To-do's for the Campaign List Page 
 
