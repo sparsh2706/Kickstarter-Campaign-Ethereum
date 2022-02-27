@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Button } from 'semantic-ui-react';
 import factory from '../ethereum/factory';
+import Layout from '../components/Layout';
 
 class CampaignIndex extends Component {
     /* Our methods would be async */
@@ -23,16 +24,18 @@ class CampaignIndex extends Component {
 
     render() {
         return (
-        <div>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-            <h3>Open Campaigns</h3>
-            {this.renderCampaigns()}
-            <Button 
-                content="Create Campaign"
-                icon="add circle"
-                primary // this means primary={true}. Just adds blue colour button
-            />
-        </div>
+        <Layout>
+            <div>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+                <h3>Open Campaigns</h3>
+                {this.renderCampaigns()}
+                <Button 
+                    content="Create Campaign"
+                    icon="add circle"
+                    primary // this means primary={true}. Just adds blue colour button
+                />
+            </div>
+        </Layout>
         );
     }
 
