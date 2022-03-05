@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Layout from '../../components/Layout';
+import Campaign from '../../ethereum/campaign';
 
 class CampaignShow extends Component {
     /* We pass in a seperate 'props' in the GetInitialProps since
@@ -7,7 +8,9 @@ class CampaignShow extends Component {
     This props object is different from the props which gets passed in
     the render method */
     static async getInitialProps(props) {
-        console.log(props.query.address);
+        const campaign = Campaign(props.query.address);
+        const summary = await campaign.methods.getSummary().call();
+        console.log(summary);
         return {};
     }
     
