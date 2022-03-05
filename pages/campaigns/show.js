@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Card } from 'semantic-ui-react';
 import Layout from '../../components/Layout';
 import Campaign from '../../ethereum/campaign';
 
@@ -19,11 +20,34 @@ class CampaignShow extends Component {
             manager: summary[4]
         };
     }
+
+    renderCards() {
+        const {
+            balance,
+            manager,
+            minimumContribution,
+            requestsCount,
+            approversCount
+        } = this.props // This is known as destructuring
+
+        const items = [
+            {
+                header: manager,
+                meta: 'Address of Manager',
+                description: 'The Manager Created this Campaign and can create Request to withdraw money',
+                style: { overflowWrap: 'break-word' }
+            }
+        ];
+
+        return <Card.Group items={items} />
+
+    };
     
     render() {
         return (
             <Layout>
                 <h3>Campaign Show</h3>
+                {this.renderCards()}
             </Layout>
         );
     }
