@@ -128,6 +128,26 @@ contract Campaign {
 
     }
 
+    /*
+    Created this for the Specific Cmapagain Page Details,
+    We would be needing all these variables in the Show Campaign
+    */
+    function getSummary() public view returns (
+        uint, uint, uint, uint, address
+    ) {
+        return (
+            minimumContribution,
+            address(this).balance,
+            requests.length,
+            approversCount,
+            manager
+        );
+    }
+
+    function getRequestCount()public view returns (uint) {
+        return requests.length;
+    }
+
 }
 
 /* Data Holding Places
