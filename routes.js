@@ -1,0 +1,7 @@
+const routes = module.exports = require('next-routes')(); // The second () means that we are invoking it as a function and it gets called the moment it is imported
+
+module.exports = routes;
+
+
+/* We have to make this file in accordance with the module next-routes (github.com/fridays/next-routes) since next routes dont have support for Dynamic Routing (having Tokens or wildcards in a URL). */
+/* So for this we would create a route.js where we would only include the URLs which have some kind of variable parameter in it, since the normal routing would be covered up by the default next.js. We also would have to make change in the server.js since we have to boot up the next server and point it towards routes.js */
