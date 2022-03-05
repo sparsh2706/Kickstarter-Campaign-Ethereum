@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card, Button } from 'semantic-ui-react';
 import factory from '../ethereum/factory';
 import Layout from '../components/Layout';
+import { Link } from '../routes';
 
 class CampaignIndex extends Component {
     /* Our methods would be async */
@@ -14,7 +15,12 @@ class CampaignIndex extends Component {
         const items = this.props.campaigns.map(address => { // This function would run thru each element. This is the map function of React
             return {
                 header: address,
-                description: <a>View Campaign</a>,
+                // Note we used backticks instead of double quotes here
+                description: (
+                    <Link route={`/campaigns/${address}`}> 
+                        <a>View Campaign</a>
+                    </Link>
+                ),
                 fluid: true // This allows the cards to stretch its width to the entire container
             };
         });
@@ -27,12 +33,16 @@ class CampaignIndex extends Component {
         <Layout>
             <div>
                 <h3>Open Campaigns</h3>
-                <Button 
-                    floated='right' // the button gets floated to the right side 
-                    content="Create Campaign"
-                    icon="add circle"
-                    primary // this means primary={true}. Just adds blue colour button
-                    />
+                <Link route="/campaigns/new">
+                    <a>
+                        <Button 
+                            floated='right' // the button gets floated to the right side 
+                            content="Create Campaign"
+                            icon="add circle"
+                            primary // this means primary={true}. Just adds blue colour button
+                        />
+                    </a>
+                </Link>
                 {this.renderCampaigns()}
             </div>
         </Layout>
@@ -41,6 +51,9 @@ class CampaignIndex extends Component {
 
 }
 export default CampaignIndex;
+
+/* Basically Link works like this:
+We wrap the Link tags around the anchor tags which then leads to the respective navigation mentioned */
 
 /* Two Column Layout:
     To send the Button to the right, we use floated. But
