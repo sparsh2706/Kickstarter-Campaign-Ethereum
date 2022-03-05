@@ -11,7 +11,13 @@ class CampaignShow extends Component {
         const campaign = Campaign(props.query.address);
         const summary = await campaign.methods.getSummary().call();
         console.log(summary);
-        return {};
+        return { 
+            minimumContribution: summary[0],
+            balance: summary[1],
+            requestsCount: summary[2],
+            approversCount: summary[3],
+            manager: summary[4]
+        };
     }
     
     render() {
@@ -24,3 +30,15 @@ class CampaignShow extends Component {
 }
 
 export default CampaignShow;
+
+/* This what we get from the console.log(summary)
+Result {
+  '0': '100',
+  '1': '0',
+  '2': '0',
+  '3': '0',
+  '4': '0x3Ef45C2080871194f444840AD7239b4c31129A1D'
+}
+This looks like an array, but it is infact an object.
+But we can still index it as summary[0]
+*/
