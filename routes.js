@@ -1,5 +1,9 @@
 const routes = module.exports = require('next-routes')(); // The second () means that we are invoking it as a function and it gets called the moment it is imported
 
+routes
+    .add('/campaigns/new', '/campaigns/new') // This was made since 'new' was going into the 'show' route as our routes didnt know that the word 'new' is not an address, so we created a route specificaaly for new and we added it before the 'show' route
+    .add('/campaigns/:address', '/campaigns/show'); // To indicate a wildcard, we use colon
+
 module.exports = routes;
 
 
