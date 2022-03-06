@@ -12,3 +12,5 @@ const instance = (address) => {
 };
 
 export default instance;
+
+/* Send the address, and this file would give you the contract functions */
