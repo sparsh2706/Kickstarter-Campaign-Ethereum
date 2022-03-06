@@ -3,6 +3,7 @@ import { Card } from 'semantic-ui-react';
 import Layout from '../../components/Layout';
 import Campaign from '../../ethereum/campaign';
 import web3 from '../../ethereum/web3';
+import ContributeForm from '../../components/ContributeForm';
 
 class CampaignShow extends Component {
     /* We pass in a seperate 'props' in the GetInitialProps since
@@ -30,6 +31,8 @@ class CampaignShow extends Component {
             requestsCount,
             approversCount
         } = this.props // This is known as destructuring
+        /* Also note that, this props right here is different from the props which was passed in GetInitialProps since it was passed
+        by the URL of the route. The Prop here is passed to the render methods */
 
         const items = [
             {
@@ -69,6 +72,7 @@ class CampaignShow extends Component {
             <Layout>
                 <h3>Campaign Show</h3>
                 {this.renderCards()}
+                <ContributeForm />
             </Layout>
         );
     }
