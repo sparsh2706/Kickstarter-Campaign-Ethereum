@@ -144,7 +144,9 @@ contract Campaign {
         );
     }
 
-    function getRequestCount()public view returns (uint) {
+    /* This is made since Solidity doesnt have support for returning Array of a Structs, so we return the length
+    of the array instead */
+    function getRequestCount() public view returns (uint) {
         return requests.length;
     }
 
