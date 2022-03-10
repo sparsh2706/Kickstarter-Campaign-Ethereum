@@ -6,7 +6,7 @@ routes
     .add('/campaigns/:address/requests', '/campaigns/requests/index')
     .add('/campaigns/:address/requests/new', '/campaigns/requests/new');
 
-    module.exports = routes;
+module.exports = routes;
 
 
 /* We have to make this file in accordance with the module next-routes (github.com/fridays/next-routes) since next routes dont have support for Dynamic Routing (having Tokens or wildcards in a URL). */
