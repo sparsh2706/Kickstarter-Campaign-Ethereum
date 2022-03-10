@@ -3,7 +3,8 @@ const routes = module.exports = require('next-routes')(); // The second () means
 routes
     .add('/campaigns/new', '/campaigns/new') // This was made since 'new' was going into the 'show' route as our routes didnt know that the word 'new' is not an address, so we created a route specificaaly for new and we added it before the 'show' route
     .add('/campaigns/:address', '/campaigns/show') // To indicate a wildcard, we use colon
-    .add('/campaigns/:address/requests', '/campaigns/requests/index');
+    .add('/campaigns/:address/requests', '/campaigns/requests/index')
+    .add('/campaigns/:address/requests/new', '/campaigns/requests/new');
 
     module.exports = routes;
 
