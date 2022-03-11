@@ -30,6 +30,7 @@ class RequestIndex extends Component {
         return this.props.requests.map((request, index) => {
             return <RequestRow
                 key={index} // React wants to always pass a KEY whenever we are rendering a List Component
+                id={index}
                 request={request}
                 address={this.props.address}
             />;
